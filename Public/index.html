@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="socket.io.js"></script>
+
+</head>
+
+<body>
+
+    <h1>hello</h1>
+
+
+    <script>
+        var socket = io("http://localhost:5000/");
+
+
+
+        socket.on('connect', function () {
+            console.log("connected")
+        });
+
+        socket.on("NOTIFICATION", function(){
+            console.log("notification received");
+        })
+
+        socket.on("COMMON_TOPIC", function(message){
+            console.log("comon topic received", message);
+        })
+
+    </script>
+</body>
+
+</html>
